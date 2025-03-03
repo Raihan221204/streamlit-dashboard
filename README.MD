@@ -59,11 +59,12 @@ Jika ingin **deploy ke Streamlit Cloud**, ikuti langkah ini:
 
 1. **Tambahkan file `requirements.txt`** di GitHub:
    ```
-   streamlit
-   pandas
-   seaborn
-   matplotlib
-   gdown
+   gdown==5.2.0
+matplotlib==3.10.1
+pandas==2.2.3
+seaborn==0.13.2
+streamlit==1.42.2
+
    ```
 
 2. **Push ke GitHub**, lalu deploy di [Streamlit Cloud](https://share.streamlit.io/).
