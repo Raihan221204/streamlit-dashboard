@@ -2,16 +2,18 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import gdown
 
-# Konfigurasi dasar
-st.set_page_config(page_title="Dashboard Analisis Pengiriman", layout="wide")
+# ID File dari Google Drive
+file_id = "1E2OVeWBPrbZ6gXnXa9VByhLpMQ6wAEyP"
+file_url = f"https://drive.google.com/uc?id={file_id}"
 
-# Identitas pembuat
-st.sidebar.markdown("## Dashboard oleh Muhammad Raihan MC-20")
+# Download file dari Google Drive
+output_path = "final_df.csv"
+gdown.download(file_url, output_path, quiet=False)
 
-# Membaca data CSV
-file_path = r'C:\Users\MUHAMMAD RAIHAN\Downloads\dataset dicoding\final_df.csv'
-final_df = pd.read_csv(file_path)
+# Membaca dataset
+final_df = pd.read_csv(output_path)
 
 # Pastikan kolom tanggal dalam format datetime
 final_df['order_estimated_delivery_date_item'] = pd.to_datetime(final_df['order_estimated_delivery_date_item'], errors='coerce')
